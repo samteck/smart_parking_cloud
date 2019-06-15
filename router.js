@@ -1,17 +1,35 @@
 var express = require('express')
 var router  = express.Router()
+var bodyParser = require('body-parser');
 
-router.get(('/saveSlots'),(req,res,next)=>{
+router.use(bodyParser.urlencoded({ extended: true }));
+router.use(bodyParser.json());
+
+
+router.use(express.json());
+
+var sam
+
+
+// Middleware function to save the time of the saveSlot request
+router.use(('/saveSlots'),(req,res,next)=>{
   console.log("Time" + Date.now())
   next()
 })
 
-router.get(('/saveSlots'),(req,res)=>{
-  res.send("This is save slot function")
+router.post(('/saveSlots'),(req,res)=>{
+  //res.send("This is save slot function")
+  sam = req.body
+  res.send(sam)
+  console.log(JSON.stringify(req.headers));
+  console.log(req.body);
+
+  //console.log(req.body)
 })
 
 router.get(('/freeSlots'),(req,res)=>{
-  res.send("This API will give free slots")
+//  res.json({hello:'you''})
+  res.send(sam)
 })
 
 router.get(('/occupiedSlots'),(req,res)=>{

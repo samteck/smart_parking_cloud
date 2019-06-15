@@ -25,7 +25,7 @@ while 1 :
     #print(type(occupiedSlot))
 	
 
-    for i in range(15):
+    for i in range(2):
     	json = '{\"occupiedSlot\":'+str(occupiedSlot)+',\"unoccupiedSlot\":'+str(unoccupiedSlot)+'}'
     	print (json)
     	
@@ -34,7 +34,7 @@ while 1 :
     	response = requests.post(url, data=json, headers=headers)
     	print('Response Code : ' + str(response.status_code))
     	
-    	time.sleep(1)
+    	time.sleep(5)
 		
 
         
