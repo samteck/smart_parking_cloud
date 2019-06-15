@@ -30,16 +30,15 @@ exports.saveSlots = function (req, res) {
 };
 
 exports.freeSlots = function (req, res) {
-//     res.send(id)
-//     console.log(req.params.id)
-   //res.send("inside free slots");
     Status.findById(id, function (err, status) {
         if (err) return next(err);
-        console.log(status.occupiedSlot)
-        res.send(status.occupiedSlot);
+        res.send(status.unoccupiedSlot);
     })
 };
 
 exports.occupiedSlots = function (req, res) {
-   res.send("inside occupied slots");
+   Status.findById(id, function (err, status) {
+        if (err) return next(err);
+        res.send(status.occupiedSlot);
+    })
 };
