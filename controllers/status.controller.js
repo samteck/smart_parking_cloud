@@ -1,44 +1,41 @@
-const Status = require('../models/status.model');
-
-//Simple version, without validation or sanitation
-// exports.saveSlots = function (req, res) {
-//    res.send(req.body.occupiedSlot);
-// };
+const Status = require('../models/status.model')
 
 var id
 
-exports.saveSlots = function (req, res) {
-    let status = new Status(
-        {
-            timeStamp: Date.now(),
-            occupiedSlot: req.body.occupiedSlot,
-            unoccupiedSlot: req.body.unoccupiedSlot
-            
-        }
-    );
-    //sam = req.body
-    //res.send(sam)
 
-    status.save(function (err,a) {
-        if (err) {
-            return next(err);
-        }
-        id = a._id
-        console.log("ID of record inserted : " + a._id);
-        res.send('Slots Details Successfully saved')
-    })
-};
+exports.saveSlots = function (req, res) {
+  let status = new Status(
+    {
+      timeStamp: Date.now(),
+      occupiedSlot: req.body.occupiedSlot,
+      unoccupiedSlot: req.body.unoccupiedSlot
+      
+    }
+  )
+  status.save(function (err,a) {
+    if (err) {
+      return next(err)
+    }
+    id = a._id
+    console.log("Successfully added Slot details at : " + Date.now() + " with mongoDB ID : " + id)
+    res.send('Slots Details Successfully saved')
+  })
+}
+
 
 exports.freeSlots = function (req, res) {
-    Status.findById(id, function (err, status) {
-        if (err) return next(err);
-        res.send(status.unoccupiedSlot);
-    })
-};
+  Status.findById(id, function (err, status) {
+    if (err) return next(err)
+    console.log("====>  /freeSlots call at : " + Date.now() + "from IP Address : " + req.ip)
+    res.send(status.unoccupiedSlot)
+  })
+}
+
 
 exports.occupiedSlots = function (req, res) {
    Status.findById(id, function (err, status) {
-        if (err) return next(err);
-        res.send(status.occupiedSlot);
-    })
-};
+    if (err) return next(err)
+    console.log("====>  /occupiedSlots call at : " + Date.now() + "from IP Address : " + req.ip)    
+    res.send(status.occupiedSlot)
+  })
+}

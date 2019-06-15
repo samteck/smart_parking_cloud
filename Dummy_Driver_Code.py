@@ -4,7 +4,7 @@ import json
 import random
 
 
-url = 'http://localhost:3000/saveSlots'
+url = 'http://54.191.157.224:3000/saveSlots'
 
 print("Started")
 slots = [1001,1002,1003,1004,1005]
