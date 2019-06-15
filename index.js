@@ -1,5 +1,7 @@
 const express = require('express')
 const app = express()
+const bodyParser = require('body-parser')
+const route = require('./routes/status.route')
 
 // Set up mongoose connection
 const mongoose = require('mongoose');
@@ -10,11 +12,6 @@ mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise;
 let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-
-
-
-const bodyParser = require('body-parser')
-const route = require('./routes/status.route')
 
 
 app.use(bodyParser.json());

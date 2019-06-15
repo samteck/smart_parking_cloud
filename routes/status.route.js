@@ -7,6 +7,6 @@ const controller = require('../controllers/status.controller');
 
 // a simple test url to check that all of our files are communicating correctly.
 router.post('/saveSlots', controller.saveSlots);
-//router.get('/freeSlots', product_controller.test);
-//router.get('/occupiedSlots', product_controller.test);
+router.get('/freeSlots/', controller.freeSlots);
+router.get('/occupiedSlots', controller.occupiedSlots);
 module.exports = router;
