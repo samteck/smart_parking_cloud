@@ -1,7 +1,9 @@
-const Status = require('../models/status.model')
+const Status = require('../models/status.model')	//import the model file where schema is defined
 
+//store the latest DB entry ID
 var id
 
+//this function will take the jason from request and store the values in mongoDB
 exports.saveSlots = function (req, res) {
   let status = new Status(
     {
@@ -21,7 +23,7 @@ exports.saveSlots = function (req, res) {
   })
 }
 
-
+//this function will fetch the free slots from DB
 exports.freeSlots = function (req, res) {
   Status.findById(id, function (err, status) {
     if (err) return next(err)
@@ -30,7 +32,7 @@ exports.freeSlots = function (req, res) {
   })
 }
 
-
+//this function will fetch the occupied slots from the DB
 exports.occupiedSlots = function (req, res) {
    Status.findById(id, function (err, status) {
     if (err) return next(err)
@@ -39,6 +41,7 @@ exports.occupiedSlots = function (req, res) {
   })
 }
 
+//this function will be called on home page
 exports.home = function (req, res) {
   console.log("==========> Someone navigated to homepage at : " + Date.now())
   res.send("You have landed the home page, please navigate to appropriate API")

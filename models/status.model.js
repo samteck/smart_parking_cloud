@@ -1,6 +1,7 @@
-const mongoose = require('mongoose')
-const Schema = mongoose.Schema
+const mongoose = require('mongoose')	//imported mongoose to define a schema
+const Schema = mongoose.Schema			//created a schema object with mongoose
 
+//define a schema for the DB entries
 let StatusSchema = new Schema({
   
   timeStamp: {type: Date, required: true},
@@ -9,5 +10,5 @@ let StatusSchema = new Schema({
   
 })
 
-// Export the model
+// export the module
 module.exports = mongoose.model('Status', StatusSchema)
