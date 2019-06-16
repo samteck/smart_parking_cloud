@@ -1,4 +1,4 @@
-# smart_parking-cloud-
+# smart_parking_cloud
 This project defines API for Smart Parking Solution which will gather local parking spot information and send it to cloud. On cloud we have API to store that data into a DB and user API which gets the free and occupied parking spots. User API's can be consumed by Mobile apps or web services.
 Also the state of a parking spot can be any of the two : occupied and unoccupied
 
@@ -110,7 +110,7 @@ python3 Dummy_Driver_Code.py
 
 Now you can open your Browser/POSTMAN to test these API's.
 
-##Future Addition
+## Future Addition
 We will add more API to this app to different other fucntionalities.
 
 
