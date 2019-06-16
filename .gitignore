@@ -1,0 +1,6 @@
+#removing the mac metadata folder ./DS_Store
+.DS_Store
+Config/.DS_Store
+
+#removing router.js file
+router.js
