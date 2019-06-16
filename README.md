@@ -36,7 +36,7 @@ This is the main file where logic of the API's is written. This will also perfor
 #### model.js
 This file defines the schema of our DB
 
-![alt text](https://github.com/samteck/smart_parking_cloud/blob/master/smart_parking_cloud_DFD.png)
+<img src="https://github.com/samteck/smart_parking_cloud/blob/master/smart_parking_cloud_DFD.png" width="500">
 
 
 ## Technologies Used
